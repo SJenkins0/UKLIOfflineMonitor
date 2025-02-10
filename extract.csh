@@ -4,7 +4,8 @@ set runDIR = "/home/calib/uk_inj/backLog"
 set dataDIR = "/disk02/calib3/usr/ukli/backLog/col"
 
 #source /usr/local/sklib_gcc8/skofl_21b/env.csh
-source /usr/local/sklib_gcc8/skofl_r30333/env.csh
+#source /usr/local/sklib_gcc8/skofl_r30333/env.csh
+source /usr/local/sklib_gcc8/skofl_r31719/env.csh
 source /usr/local/sklib_gcc8/root_v6.22.06_python3.6/bin/thisroot.csh
 
 set exec = "$runDIR/scripts/monitor"

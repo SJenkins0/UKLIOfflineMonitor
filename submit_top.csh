@@ -1,13 +1,14 @@
 #!/bin/csh
 
 #source /usr/local/sklib_gcc8/skofl_21b/env.csh
-source /usr/local/sklib_gcc8/skofl_r30333/env.csh
+#source /usr/local/sklib_gcc8/skofl_r30333/env.csh
+source /usr/local/sklib_gcc8/skofl_r31719/env.csh
 
 set homeDIR = "/home/calib/uk_inj/backLog"
 set backDIR = "/disk1/disk02/calib3/usr/ukli/backLog/"
 
-set earlyRUN = 082801
-#set earlyRUN = `ls -1 /disk02/calib3/usr/ukli/backLog/top_diffuser | head -1 | cut -d . -f2`
+#set earlyRUN = 093986
+set earlyRUN = `ls -1 /disk02/calib3/usr/ukli/backLog/top_diffuser | head -1 | cut -d . -f2`
 set latestRun = `ls -1 /disk02/calib3/usr/ukli/backLog/col/b1/ | tail -1 | cut -d . -f2`
 @ latestRun += 1000 
 

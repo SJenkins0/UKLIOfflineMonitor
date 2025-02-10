@@ -184,6 +184,9 @@ int main(int argc, char *argv[]){
   std::cout << "\033[1;34m[INFO]\033[0m Creating file " << filename << std::endl;
   //dataFile << "run subrun month day hour minute second nev_tot nev_spot totQ spotQ monQ\n";
 
+
+  //Add hist for checking T-TOF
+  //TH1F *htof = new TH1F("htof", "htof", 500, 700, 1700);
   
   // MAIN EVENT LOOP
   int nEvnt = intree->GetEntries();
@@ -216,6 +219,7 @@ int main(int argc, char *argv[]){
 	pmt.SetXYZ(pmtx_vec->at(count),pmty_vec->at(count),pmtz_vec->at(count));
 	TVector3 photon = pmt - inj;
 	float timeCor = time_vec->at(count) - photon.Mag()/c;
+	//htof->Fill(timeCor);
 
 	float theta = (photon.Angle(tarVec) * 180)/ M_PI;
 	
@@ -281,6 +285,12 @@ int main(int argc, char *argv[]){
 
   //std::cout << "\033[1;34m[INFO]\033[0m Closing " << filename << "." << std::endl;
   dataFile.close();
+
+
+  //make histogram
+
+  //htof->Draw("hist");
+  //gPad->SaveAs((std::to_string(run)+"TTOF.png").c_str());
   
   return 0;
 }

@@ -67,40 +67,41 @@ int timeCut(std::string inj, bool isCol, bool isLow){
     low[0] = 1230;
     high[0] = 1380;
     
-    low[1] = 1150;
-    high[1] = 1450;
+    //Need to make these cuts run dependent because of the TQmaps changing
+    low[1] = 1150;//1095;//previously 1150
+    high[1] = 1450;//1395;//previously 1450
     
   }
   else if (inj == "B2"){
     low[0] = 1240;
     high[0] = 1400;
     
-    low[1] = 1210;
-    high[1] = 1410;
+    low[1] = 1210;//1157;//previously 1210
+    high[1] = 1410;//1357;//previously 1410
     
   }
   else if (inj == "B3"){
     low[0] = 1240;
     high[0] = 1410;
     
-    low[1] = 1200;
-    high[1] = 1360;
+    low[1] = 1200;//1147;//previously 1200
+    high[1] = 1360;//1307;//previously 1360
     
   }
   else if (inj == "B4"){
     low[0] = 1230;
     high[0] = 1380;
     
-    low[1] = 1190;
-    high[1] = 1370;
+    low[1] = 1190;//1135;//previously 1190
+    high[1] = 1370;//1315;//previously 1370
     
   }
   else if (inj == "B5"){
     low[0] = 1240;
     high[0] = 1400;
     
-    low[1] = 1140;
-    high[1] = 1410;
+    low[1] = 1140;//1087;//previously 1140
+    high[1] = 1410;//1357;//previously 1410
     
   }
   

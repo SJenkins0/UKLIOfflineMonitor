@@ -41,10 +41,11 @@ int main(int argc, char *argv[]){
   int timeHighCut = 1000;
   int fnameSwitch = 0;
   std::string filename = "";
+  bool makePlots = false;
   
   // Search command options for flags
   int opt;
-  while ((opt = getopt(argc, argv, "o:r:")) != -1){
+  while ((opt = getopt(argc, argv, "o:r:p")) != -1){
     switch (opt)
       {
       case 'o':
@@ -53,6 +54,9 @@ int main(int argc, char *argv[]){
 	break;
       case 'r':
 	nrun = optarg;
+	break;
+      case 'p':
+	makePlots = true; //this currently does nothing
 	break;
       case ':':
 	printf("\033[1;31m[ERROR]\033[0m -%c requires an argument.\n",optopt);

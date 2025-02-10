@@ -39,6 +39,7 @@ int main(int argc, char *argv[]){
   std::string filename = "";
   int runNum = 99999;
 
+  std::cout << "test" << std::endl;
 
   int opt;
   while ((opt = getopt(argc, argv, ":h:f:o:r:")) != -1){
@@ -140,18 +141,32 @@ int main(int argc, char *argv[]){
   //Has to change based on the run number to account for the replacement of the top diffuser laser
   //New source starts from run 87073
   //
+
+  //For some strange reason, these comparisons aren't working
+  std::cout << run << std::endl;
+  if(run >= 93637) std::cout << "test" << std::endl;
   double timeLowTot, timeHighTot;
-  if(run >= 87073){
+  if(run >= 87073 && run < 93637){
+    std::cout << "Using old cut definition" << std::endl;
     timeLowTot = 650;
     timeHighTot = 1650;
     //timeLowSpt = 700;
     //timeHighSpt = 950;
   }
-  else{
-    timeLowTot = 700;
-    timeHighTot = 1700;
+  else if(run >= 93637 && run < 95000){
+    std::cout << "Using SK-VII cut definition" << std::endl;
+    timeLowTot = 500;
+    timeHighTot = 1600;
   }
-   
+  else{
+    std::cout << "Using SK-VIII cut definition" << std::endl;
+    timeLowTot = 650;
+    timeHighTot = 1650;
+    //timeLowTot = 554; //originally 700
+    //timeHighTot = 1654; //originally 1650
+  }
+
+  std::cout << timeLowTot << std::endl;
 
   int nEvnt = intree->GetEntries();
   for (Int_t evnt =0; evnt < nEvnt; ++evnt){
@@ -171,6 +186,8 @@ int main(int argc, char *argv[]){
     float barzylt0 = 0;
     float noiseQ = 0;
     float totQ = 0;
+    int bz0y0nhit = 0;
+    int barzylt0nhit = 0;
     TVector3 pmt;
     for (int count = 0; count < ihit_vec->size(); ++count){
 
@@ -193,9 +210,11 @@ int main(int argc, char *argv[]){
 	  }
 	  if (pmtz_vec->at(count) > 0 && pmty_vec->at(count) > 0){
 	    bz0y0 += charge_vec->at(count);
+	    bz0y0nhit++;
 	  }
 	  if (pmtz_vec->at(count) < 0 && pmtz_vec->at(count) > -1795 && pmty_vec->at(count) < 0){
 	    barzylt0 += charge_vec->at(count);
+	    barzylt0nhit++;
 	  }
 	}//end of angle cut
 	
@@ -206,7 +225,8 @@ int main(int argc, char *argv[]){
     
     dataFile << run << " " << subrun << " " << year << " " << month << " " << day << " "
 	     << hour << " " << minute << " " << second << " " << totQ << " "
-	     << barrelQ << " " << bz0y0 << " " << bottomQ << " " << barzylt0 << "\n";    
+	     << barrelQ << " " << bz0y0 << " " << bottomQ << " " << barzylt0 << " "
+	     << bz0y0nhit << " " << barzylt0nhit << "\n";    
   }
 
   dataFile.close();

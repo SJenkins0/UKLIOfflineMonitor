@@ -4,7 +4,8 @@ set runDIR="/home/calib/uk_inj/backLog"
 set TOPFILESTUFF="$runDIR/extracted"
 
 #source /usr/local/sklib_gcc8/skofl_21b/env.csh
-source /usr/local/sklib_gcc8/skofl_22b/env.csh
+#source /usr/local/sklib_gcc8/skofl_22b/env.csh
+source /usr/local/sklib_gcc8/skofl_r31719/env.csh
 source /usr/local/sklib_gcc8/root_v6.22.06_python3.6/bin/thisroot.csh
 
 #set analysedRun = 082801

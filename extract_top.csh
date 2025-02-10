@@ -4,13 +4,14 @@ set runDIR = "/home/calib/uk_inj/backLog"
 set dataDIR = "/disk02/calib3/usr/ukli/backLog/top_diffuser"
 
 #source /usr/local/sklib_gcc8/skofl_21b/env.csh
-source /usr/local/sklib_gcc8/skofl_22b/env.csh
+#source /usr/local/sklib_gcc8/skofl_22b/env.csh
+source /usr/local/sklib_gcc8/skofl_r31719/env.csh
 source /usr/local/sklib_gcc8/root_v6.22.06_python3.6/bin/thisroot.csh
 
 set exec = "$runDIR/top_diff/top_diff"
 
 #set analysedRun = 082801
-#set analysedRun = 87050
+#set analysedRun = 94999
 set analysedRun = `tail -1 $runDIR/extracted/top_diffuser.dat | cut -c 1-5`
 @ analysedRun++
 set latestRun = `ls -1 /disk02/calib3/usr/ukli/backLog/top_diffuser/ | tail -1 | cut -d . -f2`

@@ -100,5 +100,19 @@ int main(){
   leg1->Draw();
   c1.Update();
   c1.Print("darkrates_100_100cut_newLaser.png");
+
+
+  //3 week plot to check flasher event - 12/6/23
+  dark_all->SetTitle("Last 3 weeks");
+  dark_all->GetXaxis()->SetLimits(time.back()-604800*3, time.back()+86400*3);
+  dark_all->SetMaximum(7.2);
+  dark_all->SetMinimum(6.2);
+  dark_all->Draw("AP");
+  dark_100->Draw("psame");
+  leg->Draw();
+  c1.Update();
+  c1.Print("darkrates_recent.png");
+
+  
 	   
 }
